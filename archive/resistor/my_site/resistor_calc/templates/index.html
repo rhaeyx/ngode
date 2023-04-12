@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-lg-6">
+    
+      <h1 class="display-4">Resistor Calculator</h1>
+      <p class="lead">The following are tools to calculate the ohm value and tolerance based on resistor color codes, the total resistance of a group of resistors in parallel or in series, and the resistance of a conductor based on size and conductivity.</p>
+      <hr class="my-4">
+     
+      <style>
+          select option {
+              margin: 40px;
+              color: #fff;
+          }
+      
+          select option[value="0"] {
+              background: Black;
+          }
+          select option[value="1"] {
+              background: rgb(61, 35, 35);
+          }
+          select option[value="2"] {
+              background:rgb(255, 0, 0);
+          }
+          select option[value="3"] {
+              background:rgb(255, 100, 10);
+          }
+          select option[value="4"] {
+              color:black;
+              background: yellow;
+          }
+          select option[value="5"] {
+              background: green;
+          }
+          select option[value="6"] {
+              background:blue;
+          }
+          select option[value="7"] {
+              background:violet;
+          }
+          select option[value="8"] {
+              background: grey;
+              color:black;
+          }
+          select option[value="9"] {
+              color:black;
+              background: white;
+          }
+          select option[value="10"] {
+              background:gold;
+              color:black;
+          }
+          select option[value="11"] {
+              background:silver;
+              color:black;
+          }
+      
+      </style>
+      <body>
+        <div class="container">
+            <br><br>
+            <h3>Resistor Color Code Calculator</h3>
+            <div class="container">
+                <input type="radio" id="four" name="grp" checked onchange="check()">Four Band
+                <input type="radio" id="five" name="grp" onchange="check()">Five Band
+            </div>
+            <br>
+            <div class="container">
+                <label for="sel1">Select 1st Band</label>
+                <select id="sel1" onchange="change_color1(this);">
+                   <option value="none" selected disabled hidden>Select an Option</option>
+                    <option value=0>Black</option>
+                    <option value=1>Brown</option>
+                    <option value=2>Red</option>
+                    <option value=3>Orange</option>
+                    <option value=4>Yellow</option>
+                    <option value=5>Green</option>
+                    <option value=6>Blue</option>
+                    <option value=7>Violet</option>
+                    <option value=8>Grey</option>
+                    <option value=9>White</option>
+                    <option value=10>Gold</option>
+                    <option value=11>Silver</option>
+                </select>
+            </div>
+    
+            <div class="container">
+                <label for="sel2">Select 2nd Band</label>
+                <select id="sel2" onchange="change_color2(this);">
+                   <option value="none" selected disabled hidden>Select an Option</option>
+                    <option value=0>Black</option>
+                    <option value=1>Brown</option>
+                    <option value=2>Red</option>
+                    <option value=3>Orange</option>
+                    <option value=4>Yellow</option>
+                    <option value=5>Green</option>
+                    <option value=6>Blue</option>
+                    <option value=7>Violet</option>
+                    <option value=8>Grey</option>
+                    <option value=9>White</option>
+                    <option value=10>Gold</option>
+                    <option value=11>Silver</option> 
+                </select>
+                
+            </div>
+    
+            <div class="container2">
+                <label for="sel5">Select 3rd band</label>
+                <select id="sel5" onchange="change_color5(this);">
+                   <option value="none" selected disabled hidden>Select an Option</option>
+                    <option value=0>Black</option>
+                    <option value=1>Brown</option>
+                    <option value=2>Red</option>
+                    <option value=3>Orange</option>
+                    <option value=4>Yellow</option>
+                    <option value=5>Green</option>
+                    <option value=6>Blue</option>
+                    <option value=7>Violet</option>
+                    <option value=8>Grey</option>
+                    <option value=9>White</option>
+                    <option value=10>Gold</option>
+                    <option value=11>Silver</option> 
+                </select>
+                
+            </div>
+            <div class="container">
+                <label for="sel3">Select Multiplier</label>
+                <select id="sel3" onchange="change_color3(this);">
+                   <option value="1" selected disabled hidden>Select an Option</option>
+                    <option value="1">Black</option>  
+                    <option value="10">Brown</option>
+                    <option value="100">Red</option>
+                    <option value="1000">Orange</option>
+                    <option value="10000">Yellow</option>
+                    <option value="100000">Green</option>
+                    <option value="1000000">Blue</option>
+                    <option value="10000000">Violet</option>
+                    <option value="100000000">Grey</option>
+                    <option value="1000000000">White</option>
+                    <option value="0.1">Gold</option>
+                    <option value="0.01">Silver</option>
+                </select>
+                
+            </div>
+            
+    
+            <div class="container">
+                <label for="sel4">Select Tolerance</label>
+                <select id="sel4" onchange="change_color4(this);">
+                  <option value="" selected disabled hidden>Select an Option</option>
+                    <option value="±5% (J)">Gold</option>
+                    <option value="±10% (K)">Silver</option>
+                </select>
+            </div>
+            <br>
+            <button onclick="calculate()">Calculate</button>
+            <button onclick="reset()">Reset</button>
+            <p> The value of the option selected is: 
+              <span class="output"></span> 
+          </p>
+        <p id="ans"></p>
+    </div>
+    
+                  </div>
+                
+                      </div>
+                    </div>
+              </h6>
+              </ul>
+              </div>
+        </div>
+      </div>
+    </div>
+    <div class="container col-md-12 col-md-offset-12">
+      <form class="form-horizontal" method="post">
+          <div class="card" style="width: 35rem;">
+              <img class="card-img-top" src="pngegg.png" alt="Card image cap">
+              <div class="card-body">
+              <p class="card-text">Use this calculator to find out the ohm value and tolerance based on resistor color codes.</p>
+              
+            
+              </div>
+              </div>
+            </div>
+        </div>
+  </div>
+</div>
+</body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+  //Sabaw for Hide and show "https://stackoverflow.com/questions/40749613/how-to-show-hidden-elements-in-javascript-html"
+  //https://stackoverflow.com/questions/1423777/how-can-i-check-whether-a-radio-button-is-selected-with-javascript
+
+  function check(){ //Checks if Four bands or Five bands(hide and show for 3rd band)
+      if(document.getElementById('four').checked) {
+          $('.container2').hide();
+        }else if(document.getElementById('five').checked) {
+          $('.container2').show();
+        }
+
+
+  }
+
+  function calculate(){ //Calculates Ohm 
+      let ohm = "";
+
+      choice1 = document.querySelector('#sel1')     //Calls Option1
+      hold1 = choice1.options[choice1.selectedIndex].value; //Selects selected from Called option1
+      choice2 = document.querySelector('#sel2')   //Same process AHAHA
+      hold2 = choice2.options[choice2.selectedIndex].value;
+      choice5 = document.querySelector('#sel5') 
+      hold5 = choice5.options[choice5.selectedIndex].value;
+      Multiplier = document.querySelector('#sel3') 
+      Mult = Multiplier.options[Multiplier.selectedIndex].value;
+
+
+      //Actual Solving part
+      ohm += hold1 + hold2+ hold5; //Adds 3 strings (hold5 will be empty unless 3rd band is changed)
+      let SolveMe = parseInt(ohm); //Converts String to Integer
+      let Multiply = parseFloat(Mult); //Converts String to Float(Specifically for the decimal bois)
+
+      SolveMe = SolveMe*Multiply; 
+
+      Tol = document.querySelector('#sel4') //This for the gold and silver percent sign
+      Tolerance = Tol.options[Tol.selectedIndex].value;
+
+      document.querySelector('.output').textContent = SolveMe + " " + Tolerance; //Calls output normally
+
+      /*Changes sa html and css are the following:
+       -Changed div class of sel5 from container to container2 
+       -Added sa style part ang for the container2 
+       -chupachups
+       */
+
+  }
+</script> 
+</html>
