@@ -8,10 +8,10 @@ import java.util.Random;
 public class Maze extends JPanel implements ActionListener {
 
   // player position
-  // private static int x = 280;
-  // private static int y = 520;
-  private static int x = 300;
-  private static int y = 300;
+  private static int x = 280;
+  private static int y = 520;
+  // private static int x = 300;
+  // private static int y = 300;
 
   // settings
   private static int step = 10;
@@ -22,7 +22,7 @@ public class Maze extends JPanel implements ActionListener {
   private static int frameHeight = 600;
 
   // game variables
-  private static int level = 2;
+  private static int level = 0;
   private static boolean[] blocked = new boolean[3];
 
   private static int[] xs = new int[30];
