@@ -31,7 +31,7 @@ public class Maze extends JPanel implements ActionListener {
   public static void main(String[] args) {
 
     JFrame frame = new JFrame();
-    frame.setTitle("Maze Game: Reach the Treasure Room");
+    frame.setTitle("Maze Game: Reach Test the Treasure Room");
     frame.setLayout(new BorderLayout());
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.addKeyListener(new KeyAdapter() {
